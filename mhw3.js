@@ -401,7 +401,7 @@ function onWeatherResponse(response) {
 }
 
 function fetchWeatherData(lat, lng) {
-    const apiKey = '7c15ad8a5a0e46a8b62110903251204'; //WEATHER API KEY. vedi https://www.weatherapi.com/my/
+    const apiKey = secret; //WEATHER API KEY. vedi https://www.weatherapi.com/my/
     const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${lat},${lng}&aqi=no`;
   
     fetch(url).then(onWeatherResponse).then(onWeatherJson);
@@ -434,7 +434,7 @@ function fetchWeatherData(lat, lng) {
   function fetchCoordinates(event) {
     event.preventDefault();
     console.log('Richiesta coordinate per:');
-    const bingMapsKey = 'ApwhowTOlOwc6jfo5zPH8klAHAy67rO45yu5zJsA-uaIYH8dMnk7xQHQxPfeFUpF'; //BING MAPS API KEY
+    const bingMapsKey = secret; //BING MAPS API KEY
     const url = 'http://dev.virtualearth.net/REST/v1/Locations?query=' + encodeURIComponent(cityName) + '&key=' + bingMapsKey;
     fetch(url).then(onGeoResponse).then(onGeoJson);
   }
@@ -467,7 +467,7 @@ function fetchWeatherData(lat, lng) {
     if (!lng) lng = 15.0894861;
   
     map = new Microsoft.Maps.Map('#myMap', {
-      credentials: 'ApwhowTOlOwc6jfo5zPH8klAHAy67rO45yu5zJsA-uaIYH8dMnk7xQHQxPfeFUpF',
+      credentials: secret,
       center: new Microsoft.Maps.Location(lat, lng),
       zoom: 14
     });
@@ -551,8 +551,8 @@ function fetchWeatherData(lat, lng) {
         return response.json();
     }
           
-    const client_id = "7f6bacba3bd5461983e304f4710f88f6";
-        const client_secret = "a8eabd53422f496188eeee5f52f71af9";
+    const client_id = secret;
+        const client_secret = secret;
         let token;
         fetch("https://accounts.spotify.com/api/token", {
         method: "post",
